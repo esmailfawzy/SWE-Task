@@ -6,7 +6,7 @@ const DepartmentSchema = mongoose.Schema({
     required: true,
   },
   dep_code: {
-    type: Number,
+    type: String,
     required: true,
   },
 });
