@@ -1,12 +1,14 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import { engine } from "express-handlebars";
 import departmentsRoutes from "./routes/departments.js";
 
 const app = express();
-dotenv.config();
-app.use("view engine", "handlebars");
+app.engine("handlebars", engine());
+app.set("view engine", "handlebars");
 app.set("views", "./views");
+dotenv.config();
 
 app.use("/departments", departmentsRoutes);
 
