@@ -1,0 +1,44 @@
+<h1>Create new subject</h1>
+
+<form action="/subjects" method="POST">
+    {{!-- name --}}
+    <div>
+        <label for="">Name: </label>
+
+        <input type="text" class="form-control" name="name">
+    </div>
+
+    {{!-- code --}}
+    <div>
+        <label for="">Code: </label>
+
+        <input type="text" class="form-control" name="code">
+    </div>
+
+    {{!-- dep --}}
+    <div>
+        <label for="">Department: </label>
+
+        <select name="dep" id="" class="form-select">
+            <option value="CS">CS</option>
+            <option value="IS">IS</option>
+            <option value="IT">IT</option>
+            <option value="General">General</option>
+
+
+        </select>
+    </div>
+
+    {{!-- pre_req --}}
+    <div>
+        <label for="">Pre_req: </label>
+
+        <input type="text" class="form-control" name="pre_req">
+    </div>
+    <br>
+    <div>
+        <button class="btn btn-success" type="submit">
+            Save
+        </button>
+    </div>
+</form>
