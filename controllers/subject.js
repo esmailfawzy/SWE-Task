@@ -1,13 +1,14 @@
 import subject from "../models/subject.js"
-
+import Department from "../models/Department.js";
 export const index = async (req, res) => {
     const subjects = await subject.find({}, { name: 1 }).lean()
 
     res.render("subjects/index", { subjects })
 }
 
-export const create = (req, res) => {
-    res.render('subjects/create')
+export const create = async (req, res) => {
+    const departments = await Department.find().lean();
+    res.render('subjects/create',{departments})
 }
 
 export const edit = async (req, res) => {
@@ -32,8 +33,8 @@ export const store = async (req, res) => {
     await subject.create({
         name,
         code,
-        dep,
-        pre_req
+        dep, 
+        pre_req,
     })
 
     res.redirect('/subjects')

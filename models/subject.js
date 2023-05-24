@@ -10,8 +10,9 @@ const subject = new Schema({
         required: false
     },
     dep: {
-        type: String,
-        required: false 
+        type: Schema.Types.ObjectId,
+        required: false ,
+        ref:'Department'
     },
     pre_req: {
         type: String,

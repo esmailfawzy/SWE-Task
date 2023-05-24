@@ -20,11 +20,9 @@
         <label for="">Department: </label>
 
         <select name="dep" id="" class="form-select">
-            <option value="CS">CS</option>
-            <option value="IS">IS</option>
-            <option value="IT">IT</option>
-            <option value="General">General</option>
-
+            {{#each departments}}
+            <option value="{{_id}}">{{name}}</option>
+            {{/each}}
 
         </select>
     </div>
