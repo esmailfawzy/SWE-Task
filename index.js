@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import { engine } from "express-handlebars";
 import departmentsRoutes from "./routes/Departments.js";
-
+import { adminAuth, userAuth } from "./Auth/Auth.js";
 
 
 
@@ -19,7 +19,7 @@ app.set("view engine", "ejs")
 app.set("views", "./views");
 dotenv.config();
 
-const { adminAuth, userAuth } = require("./Auth.js");
+
 
 app.get("/admin", adminAuth, (req, res) => res.send("Admin Route"));
 app.get("/basic", userAuth, (req, res) => res.send("User Route"));

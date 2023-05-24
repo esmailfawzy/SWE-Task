@@ -1,7 +1,7 @@
-const express = require("express")
+import { express } from "express"
+import { adminAuth } from ("../Auth/Auth.js")
 const router = express.Router()
 const { register, login, update } = require("./Auth");
-const { adminAuth } = require("../Auth")
 router.route("/register").post(register)
 router.route("/login").post(login);
 router.route("/update").put(adminAuth, update)

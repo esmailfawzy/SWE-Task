@@ -1,6 +1,8 @@
-const User = require("../model/User")
-const bcrypt = require("bcryptjs")
-const jwt = require('jsonwebtoken')
+import { User } from "../models/User.js"
+import{ bcrypt }  from "bcryptjs"
+import { jwt } from "jsonwebtoken"
+
+
 const jwtSecret = 'f52560967c6259acfdb699422038fc983af277f0bb208c7fc389ea913674836a4b1d91'
 
 // auth.js
@@ -239,6 +241,22 @@ exports.userAuth = (req, res, next) => {
         .status(401)
         .json({ message: "Not authorized, token not available" })
     }
+  }
+
+  exports.getUsers = async (req, res, next) => {
+    await User.find({})
+      .then(users => {
+        const userFunction = users.map(user => {
+          const container = {}
+          container.username = user.username
+          container.role = user.role
+          return container
+        })
+        res.status(200).json({ user: userFunction })
+      })
+      .catch(err =>
+        res.status(401).json({ message: "Not successful", error: err.message })
+      )
   }
 
 
