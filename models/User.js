@@ -1,6 +1,6 @@
 // user.js
-const Mongoose = require("mongoose")
-const UserSchema = new Mongoose.Schema({ 
+import Mongoose from "mongoose";
+const UserSchema = new Mongoose.Schema({
   username: {
     type: String,
     unique: true,
@@ -16,8 +16,7 @@ const UserSchema = new Mongoose.Schema({
     default: "Basic",
     required: true,
   },
-})
+});
 
-
-const User = Mongoose.model("user", UserSchema)
-module.exports = User   
+const User = Mongoose.model("user", UserSchema);
+export default User;

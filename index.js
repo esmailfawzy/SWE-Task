@@ -4,9 +4,11 @@ import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import { engine } from "express-handlebars";
 import departmentsRoutes from "./routes/Departments.js";
+import AuthRouter from "./Auth/Route.js";
+import subjectRouter from "./routes/subjects.js";
 
 // configurations
-
+const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.engine("handlebars", engine());
@@ -15,13 +17,11 @@ app.set("views", "./views");
 dotenv.config();
 
 // routes
-
 app.use("/departments", departmentsRoutes);
-app.use("/api/auth", require("./Auth/Route"))
-
+app.use("/auth", AuthRouter);
+app.use("/subjects", subjectRouter);
 
 app.get("/", (req, res) => {
-  
   res.send("HELLO WORLD!");
 });
 
