@@ -19,7 +19,9 @@ app.set("view engine", "ejs")
 app.set("views", "./views");
 dotenv.config();
 
-
+app.get('/admin', (req, res) => {
+  res.render('homeAdmin');
+});
 
 app.get("/admin", adminAuth, (req, res) => res.send("Admin Route"));
 app.get("/basic", userAuth, (req, res) => res.send("User Route"));
