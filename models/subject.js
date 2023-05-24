@@ -17,6 +17,11 @@ const subject = new Schema({
     pre_req: {
         type: String,
         required: true
+    },
+    student: {
+        type: Schema.Types.ObjectId,
+        required: false,
+        ref: 'user',
     }
 },{timestamps: true} )
 
