@@ -11,6 +11,7 @@ router
   .route("/login")
   .get((req, res) => res.render("auth/login"))
   .post(login);
+
 router.route("/update").put(update);
 
 export default router;

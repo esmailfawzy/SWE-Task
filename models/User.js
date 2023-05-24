@@ -7,17 +7,14 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
-
     email: {
       type: String,
       required: true,
     },
-
     password: {
       type: String,
       required: true,
     },
-
     academicnumber: {
       type: String,
       // required: true,
@@ -31,6 +28,9 @@ const UserSchema = new Schema(
       type: Schema.Types.ObjectId,
       required: false,
       ref: "user",
+    },
+    userType: {
+      type: String,
     },
   },
 

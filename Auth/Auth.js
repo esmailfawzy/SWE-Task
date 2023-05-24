@@ -7,12 +7,13 @@ const jwtSecret =
 
 // auth.js
 export const register = async (req, res, next) => {
-  const { username, password, email } = req.body;
+  const { username, password, email, userType } = req.body;
   bcrypt.hash(password, 10).then(async (hash) => {
     await User.create({
       username,
       password: hash,
       email,
+      userType,
     })
       .then((user) => {
         const maxAge = 3 * 60 * 60;
@@ -71,7 +72,13 @@ export const login = async (req, res, next) => {
             httpOnly: true,
             maxAge: maxAge * 1000, // 3hrs in ms
           });
-          res.status(201).redirect("/");
+          if (user.userType == "Admin") {
+            res.status(201).redirect("/homeAdmin");
+          } else if (user.userType == "Doctor") {
+            res.send("doctor");
+          } else if (user.userType == "Student") {
+            res.send("student");
+          }
         } else {
           res.status(400).json({ message: "Login not succesful" });
         }

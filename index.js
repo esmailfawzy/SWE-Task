@@ -6,6 +6,8 @@ import { engine } from "express-handlebars";
 import departmentsRoutes from "./routes/Departments.js";
 import AuthRouter from "./Auth/Route.js";
 import subjectRouter from "./routes/subjects.js";
+import subject from "./models/subject.js";
+import userRouter from "./routes/users.js";
 
 // configurations
 const app = express();
@@ -17,12 +19,18 @@ app.set("views", "./views");
 dotenv.config();
 
 // routes
+app.get("/homeAdmin", async (req, res) => {
+  const subjects = await subject.find().lean();
+  res.render("homeAdmin", { subjects });
+});
+
 app.use("/departments", departmentsRoutes);
 app.use("/auth", AuthRouter);
 app.use("/subjects", subjectRouter);
+app.use("/users", userRouter);
 
 app.get("/", (req, res) => {
-  res.send("HELLO WORLD!");
+  res.redirect("/homeAdmin");
 });
 
 // connection to database

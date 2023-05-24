@@ -10,7 +10,14 @@ export const addDepartment = async (req, res) => {
 
   await dep.save();
 
-  res.status(201).json({
-    msg: "Created department",
-  });
+  res.status(201).redirect("/departments");
+};
+
+export const showDepartments = async (req, res) => {
+  const departments = await Department.find().lean();
+  res.render("departments/show", { departments });
+};
+
+export const addDepForm = async (req, res) => {
+  res.render("departments/add");
 };

@@ -1,0 +1,35 @@
+<form action="/users/create" method="post">
+  <div class="name">
+    <label for="">Username</label>
+    <input type="text" name="username" class="form-control" />
+  </div>
+  <div class="email">
+    <label for="">Email</label>
+    <input type="email" name="email" class="form-control" />
+  </div>
+
+  <div class="userType">
+    <label for="userType">User Type</label>
+    <select name="userType" id="userType" class="form-select">
+      <option value="Admin">Admin</option>
+      <option value="Doctor">Doctor</option>
+      <option value="Student">Student</option>
+    </select>
+  </div>
+  <div class="pass">
+    <label for="">Password</label>
+    <input
+      type="password"
+      name="password"
+      class="form-control"
+      value="{{subject.name}}"
+    />
+  </div>
+  <div>
+    <button
+      id="b"
+      type="submit"
+      class="btn btn-outline-secondary"
+    >Register</button>
+  </div>
+</form>
