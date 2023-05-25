@@ -1,42 +1,54 @@
 <h1>Create new subject</h1>
 
 <form action="/subjects" method="POST">
-    {{!-- name --}}
-    <div>
-        <label for="">Name: </label>
+  {{! name }}
+  <div>
+    <label for="">Name: </label>
 
-        <input type="text" class="form-control" name="name">
-    </div>
+    <input type="text" class="form-control" name="name" />
+  </div>
 
-    {{!-- code --}}
-    <div>
-        <label for="">Code: </label>
+  {{! code }}
+  <div>
+    <label for="">Code: </label>
 
-        <input type="text" class="form-control" name="code">
-    </div>
+    <input type="text" class="form-control" name="code" />
+  </div>
 
-    {{!-- dep --}}
-    <div>
-        <label for="">Department: </label>
+  {{! dep }}
+  <div>
+    <label for="">Department: </label>
 
-        <select name="dep" id="" class="form-select">
-            {{#each departments}}
-            <option value="{{_id}}">{{name}}</option>
-            {{/each}}
+    <select name="dep" id="" class="form-select">
+      {{#each departments}}
+        <option value="{{_id}}">{{name}}</option>
+      {{/each}}
 
-        </select>
-    </div>
+    </select>
+  </div>
 
-    {{!-- pre_req --}}
-    <div>
-        <label for="">Pre_req: </label>
+  {{! doc }}
+  <div>
+    <label for="doctor">Doctor: </label>
 
-        <input type="text" class="form-control" name="pre_req">
-    </div>
-    <br>
-    <div>
-        <button class="btn btn-success" type="submit">
-            Save
-        </button>
-    </div>
+    <select name="doctor" id="" class="form-select">
+      {{#each doctors}}
+        <option value="{{username}}">{{username}}</option>
+      {{/each}}
+
+    </select>
+  </div>
+
+  {{! pre_req }}
+  <div>
+    <label for="">Pre_req: </label>
+
+    <input type="text" class="form-control" name="pre_req" />
+  </div>
+  <br />
+  <div>
+    <button class="btn btn-success" type="submit">
+      Save
+    </button>
+  </div>
 </form>

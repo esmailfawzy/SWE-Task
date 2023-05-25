@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <title>Doctor's Subjects</title>
+  </head>
+  <body>
+    <h1>Doctor's Subjects</h1>
+    <ul>
+      {{#each subjects}}
+        <li> <a href="/subjects/{{_id}}">{{name}}</a></li>
+      {{/each}}
+    </ul>
+  </body>
+</html>

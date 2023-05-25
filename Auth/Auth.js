@@ -75,7 +75,7 @@ export const login = async (req, res, next) => {
           if (user.userType == "Admin") {
             res.status(201).redirect("/homeAdmin");
           } else if (user.userType == "Doctor") {
-            res.send("doctor");
+            res.status(201).redirect("/homeDoc");
           } else if (user.userType == "Student") {
             res.send("student");
           }

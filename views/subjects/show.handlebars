@@ -1,15 +1,31 @@
 <h1>
-    {{subject.name}}
-</h1><hr>
+  {{subject.name}}
+</h1><hr />
 
 <div>
-    <h4>Code:</h4><h6>{{subject.code}}</h6>
+  <h4>Code:</h4><h6>{{subject.code}}</h6>
 </div>
-<br>
+<br />
 <div>
-    <h4>Department:</h4> <h6>{{subject.dep}}</h6>
+  <h4>Department:</h4>
+  <h6>{{subject.dep}}</h6>
 </div>
-<br>
+<br />
 <div>
-    <h4>Pre_req:</h4> <h6>{{subject.pre_req}}</h6>
+  <h4>Pre_req:</h4>
+  <h6>{{subject.pre_req}}</h6>
+</div>
+<br />
+<div>
+  <h4>Doctor:</h4>
+  <h6>{{subject.doctor}}</h6>
+</div>
+<br />
+<div>
+  <form method="post" enctype="multipart/form-data" action="/subjects/upload">
+    <label for="">Upload: </label>
+
+    <input type="file" class="form-control" name="pdfPath" />
+    <button type="submit">Upload</button>
+  </form>
 </div>
